@@ -7,32 +7,32 @@ const Buttons = document.getElementsByClassName("opcion");
 // Variables background videoID textContent
 const ScenesData = [
   {
-    background: "url(./assets/background/1.jpg)",
+    background: "url(./assets/background/1.png)",
     videoID: "6YF6zYSSMbg",
     textContent: "Esperaba encontrarme con ésta persona.",
   },
   {
-    background: "url(./assets/background/2.jpg)",
+    background: "url(./assets/background/2.png)",
     videoID: "iV2-Lj3gX8I",
     textContent: "ESCUCHAR",
   },
   {
-    background: "url(./assets/background/3.jpg)",
+    background: "url(./assets/background/3.png)",
     videoID: "d69T2gqYQGs",
     textContent: "YA AGARRE ALGO PARA ANOTAR",
   },
   {
-    background: "url(./assets/background/4.jpg)",
+    background: "url(./assets/background/4.png)",
     videoID: "P3jNnWfX0Ww",
     textContent: "CONTINUAR",
   },
   {
-    background: "url(./assets/background/5.jpg)",
+    background: "url(./assets/background/5.png)",
     videoID: "O9i94NwMQaY",
     textContent: "CONTINUAR",
   },
   {
-    background: "url(./assets/background/6.jpg)",
+    background: "url(./assets/background/6.png)",
     videoID: "_F8DZ4wLisM",
     textContent: "CONTINUAR",
   },

@@ -17,6 +17,7 @@ body {
 .DOMScene {
     width: 100vw;
     height: 100%;
+    transition: visibility 0s linear 0s, opacity 500ms;
 }
 /* Background */
 .background {
@@ -26,6 +27,11 @@ body {
     align-items: center;
     justify-content: space-around;
     background-image: url(./assets/background/1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0;
+    transition: visibility 0s linear 0s, opacity 500ms;
 }
 .opcion {
     display: flex;
@@ -33,6 +39,7 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 0 2vw;
     border-radius: 15px;
     width: 30vw;
     height: 25vh;

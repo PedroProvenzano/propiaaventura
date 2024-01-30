@@ -44,12 +44,12 @@ const ScenesData = [
   {
     background: "url(./assets/background/8.jpg)",
     videoID: "rAw0Q0tyrmY",
-    textContent: "VOLVER A LA PREGUNTA",
+    textContent: "CONTINUAR",
   },
   {
     background: "url(./assets/background/9.jpg)",
     videoID: "08bioEKW5NE",
-    textContent: "",
+    textContent: "VOLVER A LA PREGUNTA",
   },
 ];
 const formLink =
@@ -60,7 +60,7 @@ let Player;
 
 // Events for buttons
 Buttons[0].addEventListener("click", () => {
-  if (STATE !== 7) {
+  if (STATE !== 8) {
     STATE++;
   } else {
     STATE = 1;
@@ -81,7 +81,7 @@ Buttons[0].addEventListener("click", () => {
   });
 });
 Buttons[1].addEventListener("click", () => {
-  STATE = 7;
+  STATE = 8;
   changeScene();
   Player = new YT.Player("Player", {
     width: "640",
@@ -125,9 +125,11 @@ function setBackground() {
 // Done - Test Pending
 function changeScene() {
   if (isVideo) {
-    Scenes["DomChoose"].style.display = "flex";
+    //Animation Choose
     Scenes["DomScene"].style.display = "none";
+    Scenes["DomChoose"].style.display = "flex";
   } else {
+    //Animation Scene
     Scenes["DomChoose"].style.display = "none";
     Scenes["DomScene"].style.display = "block";
   }
@@ -157,7 +159,7 @@ function onPlayerReady(event) {
 // when video ends
 function onPlayerStateChange(event) {
   if (event.data === 0) {
-    if (STATE !== 6) {
+    if (STATE !== 7) {
       event.target.destroy();
       setScene();
     } else {

@@ -1,18 +1,167 @@
-const source = document.getElementById("source");
-const video = document.getElementById("video");
-const op1 = document.getElementById("op1");
-const op2 = document.getElementById("op2");
+const Scenes = {
+  DomScene: document.getElementsByClassName("DOMScene")[0],
+  DomChoose: document.getElementById("background"),
+};
+const Buttons = document.getElementsByClassName("opcion");
 
-op1.addEventListener("click", () => {
-  source.src = "./videos/terry.mp4";
-  video.muted = !video.muted;
-  video.load();
-  video.play();
-});
+// Variables background videoID textContent
+const ScenesData = [
+  {
+    background: "url(./assets/background/1.jpg)",
+    videoID: "6YF6zYSSMbg",
+    textContent: "Esperaba encontrarme con ésta persona.",
+  },
+  {
+    background: "url(./assets/background/2.jpg)",
+    videoID: "iV2-Lj3gX8I",
+    textContent: "ESCUCHAR",
+  },
+  {
+    background: "url(./assets/background/3.jpg)",
+    videoID: "d69T2gqYQGs",
+    textContent: "YA AGARRE ALGO PARA ANOTAR",
+  },
+  {
+    background: "url(./assets/background/4.jpg)",
+    videoID: "P3jNnWfX0Ww",
+    textContent: "CONTINUAR",
+  },
+  {
+    background: "url(./assets/background/5.jpg)",
+    videoID: "O9i94NwMQaY",
+    textContent: "CONTINUAR",
+  },
+  {
+    background: "url(./assets/background/6.jpg)",
+    videoID: "_F8DZ4wLisM",
+    textContent: "CONTINUAR",
+  },
+  {
+    background: "url(./assets/background/7.jpg)",
+    videoID: "lBbMN1x-hX0",
+    textContent: "CONTINUAR",
+  },
+  {
+    background: "url(./assets/background/8.jpg)",
+    videoID: "rAw0Q0tyrmY",
+    textContent: "VOLVER A LA PREGUNTA",
+  },
+  {
+    background: "url(./assets/background/9.jpg)",
+    videoID: "08bioEKW5NE",
+    textContent: "",
+  },
+];
+const formLink =
+  "https://docs.google.com/forms/d/1CabQ4_XSAeXbnUoCwPGOeaaDlLwsOxYmxJBV0JRm5pQ/edit?usp=drivesdk";
+let STATE = 0;
+let isVideo = true;
+let Player;
 
-op2.addEventListener("click", () => {
-  source.src = "./videos/whale.mp4";
-  video.muted = !video.muted;
-  video.load();
-  video.play();
+// Events for buttons
+Buttons[0].addEventListener("click", () => {
+  if (STATE !== 7) {
+    STATE++;
+  } else {
+    STATE = 1;
+  }
+  changeScene();
+  Player = new YT.Player("Player", {
+    width: "640",
+    height: "390",
+    videoId: ScenesData[STATE].videoID,
+    playerVars: {
+      controls: 0,
+      disablekb: 1,
+    },
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange,
+    },
+  });
 });
+Buttons[1].addEventListener("click", () => {
+  STATE = 7;
+  changeScene();
+  Player = new YT.Player("Player", {
+    width: "640",
+    height: "390",
+    videoId: ScenesData[STATE].videoID,
+    playerVars: {
+      controls: 0,
+      disablekb: 1,
+    },
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange,
+    },
+  });
+});
+// Se ejecuta cuando termina un video
+function setScene() {
+  setBackground();
+  setButtons();
+  changeScene();
+}
+// Se ejecutan dentro del setScene
+// Done - Test Pending
+function setButtons() {
+  if (STATE === 1) {
+    // Un solo boton
+    Buttons[0].innerHTML = ScenesData[STATE].textContent;
+    Buttons[0].style.display = "flex";
+    Buttons[1].style.display = "flex";
+  } else {
+    // Dos botones
+    Buttons[0].innerHTML = ScenesData[STATE].textContent;
+    Buttons[0].style.display = "flex";
+    Buttons[1].style.display = "none";
+  }
+}
+// Done - Test Pending
+function setBackground() {
+  Scenes["DomChoose"].style.backgroundImage = ScenesData[STATE].background;
+}
+// Done - Test Pending
+function changeScene() {
+  if (isVideo) {
+    Scenes["DomChoose"].style.display = "flex";
+    Scenes["DomScene"].style.display = "none";
+  } else {
+    Scenes["DomChoose"].style.display = "none";
+    Scenes["DomScene"].style.display = "block";
+  }
+  isVideo = !isVideo;
+}
+// Creation of the first video
+function onYouTubePlayerAPIReady() {
+  Player = new YT.Player("Player", {
+    width: "640",
+    height: "390",
+    videoId: ScenesData[STATE].videoID,
+    playerVars: {
+      controls: 0,
+      disablekb: 1,
+    },
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange,
+    },
+  });
+}
+// autoplay video
+function onPlayerReady(event) {
+  event.target.setPlaybackQuality("hd720");
+  event.target.playVideo();
+}
+// when video ends
+function onPlayerStateChange(event) {
+  if (event.data === 0) {
+    if (STATE !== 6) {
+      event.target.destroy();
+      setScene();
+    } else {
+      console.log("Evento final");
+    }
+  }
+}

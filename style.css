@@ -30,7 +30,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    opacity: 0;
     transition: visibility 0s linear 0s, opacity 500ms;
 }
 .opcion {

@@ -17,13 +17,14 @@ body {
 .DOMScene {
     width: 100vw;
     height: 100%;
-    transition: visibility 0s linear 0s, opacity 500ms;
+    display: none;
 }
 /* Background */
 .background {
     height: 100vh;
     width: 100vw;
     display: none; /* flex */
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     background-image: url(./assets/background/1.png);
@@ -32,7 +33,17 @@ body {
     background-size: cover;
     transition: visibility 0s linear 0s, opacity 500ms;
 }
-.opcion {
+.background img {
+    height: 350px;
+    border: #FAFAFA 20px solid;
+}
+.contenedor-opcion {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 90vw;
+}
+.opcion, .boton {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -40,8 +51,10 @@ body {
     text-align: center;
     padding: 0 2vw;
     border-radius: 15px;
-    width: 30vw;
-    height: 25vh;
+    width: 500px;
+    height: 220px;
+    min-height: 100px;
+    min-width: 210px;
     font-size: 2rem;
     background-image: url(./assets/boton\ fondo.svg);
     background-repeat: no-repeat;
@@ -49,10 +62,49 @@ body {
     background-size: cover;
     color: #F7D135;
 }
-.opcion:hover{
+.opcion:hover, .boton:hover{
     cursor: pointer;
 }
+.intro {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.intro.fade {
+    opacity: 1;
+}
+.intro img {
+    height: 25vh;
+    max-height: 250px;
+    min-height: 100px;
+}
+.boton {
+    height: 15vh;
+    width: 18vw;
+    max-width: 320px;
+    max-height: 140px;
+    margin-top: 2rem;
+}
 
-@media (max-width: 570px) {
+@media (max-width: 1200px) {
+    html {
+        font-size: 70%;
+    }
+    .opcion, .boton {
+        height: 220px;
+        width: 500px;
+    }
+}
 
+@media (max-width: 700px) {
+    .contenedor-opcion{ 
+        flex-direction: column;
+    }
+    .opcion, .boton {
+        width: 250px;
+        height: 120px;
+    }
 }

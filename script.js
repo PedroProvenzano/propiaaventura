@@ -3,6 +3,9 @@ const Scenes = {
   DomChoose: document.getElementById("background"),
 };
 const Buttons = document.getElementsByClassName("opcion");
+const Intro = document.getElementById("intro");
+const Matufia = document.getElementById("matufia");
+Intro.classList.toggle("fade");
 
 // Variables background videoID textContent
 const ScenesData = [
@@ -57,6 +60,7 @@ const formLink =
 let STATE = 0;
 let isVideo = true;
 let Player;
+let tryAgain = false;
 
 // Events for buttons
 Buttons[0].addEventListener("click", () => {
@@ -64,21 +68,28 @@ Buttons[0].addEventListener("click", () => {
     STATE++;
   } else {
     STATE = 1;
+    tryAgain = true;
   }
   changeScene();
-  Player = new YT.Player("Player", {
-    width: "640",
-    height: "390",
-    videoId: ScenesData[STATE].videoID,
-    playerVars: {
-      controls: 0,
-      disablekb: 1,
-    },
-    events: {
-      onReady: onPlayerReady,
-      onStateChange: onPlayerStateChange,
-    },
-  });
+  if (tryAgain) {
+    setButtons();
+    setBackground();
+    tryAgain = false;
+  } else {
+    Player = new YT.Player("Player", {
+      width: "640",
+      height: "390",
+      videoId: ScenesData[STATE].videoID,
+      playerVars: {
+        controls: 0,
+        disablekb: 1,
+      },
+      events: {
+        onReady: onPlayerReady,
+        onStateChange: onPlayerStateChange,
+      },
+    });
+  }
 });
 Buttons[1].addEventListener("click", () => {
   STATE = 8;
@@ -124,19 +135,37 @@ function setBackground() {
 }
 // Done - Test Pending
 function changeScene() {
-  if (isVideo) {
-    //Animation Choose
-    Scenes["DomScene"].style.display = "none";
-    Scenes["DomChoose"].style.display = "flex";
+  if (STATE !== 0) Matufia.style.display = "none";
+  // Desaparecer img
+  if (tryAgain) {
+    isVideo = false;
   } else {
-    //Animation Scene
-    Scenes["DomChoose"].style.display = "none";
-    Scenes["DomScene"].style.display = "block";
+    if (isVideo) {
+      //Animation Choose
+      Scenes["DomScene"].style.display = "none";
+      Scenes["DomChoose"].style.display = "flex";
+    } else {
+      //Animation Scene
+      Scenes["DomChoose"].style.display = "none";
+      Scenes["DomScene"].style.display = "block";
+    }
+    isVideo = !isVideo;
   }
-  isVideo = !isVideo;
 }
-// Creation of the first video
-function onYouTubePlayerAPIReady() {
+
+// Animation
+function startFadeout() {
+  setTimeout(() => {
+    setTimeout(() => {
+      document.getElementById("Player").style.display = "block";
+      Intro.style.display = "none";
+      Player.playVideo();
+    }, 1000 * 0.5);
+    Intro.classList.toggle("fade");
+  }, 1000 * 1);
+}
+document.getElementById("intro-comenzar").addEventListener("click", () => {
+  startFadeout();
   Player = new YT.Player("Player", {
     width: "640",
     height: "390",
@@ -150,6 +179,10 @@ function onYouTubePlayerAPIReady() {
       onStateChange: onPlayerStateChange,
     },
   });
+});
+// Creation of the first video
+function onYouTubePlayerAPIReady() {
+  //
 }
 // autoplay video
 function onPlayerReady(event) {

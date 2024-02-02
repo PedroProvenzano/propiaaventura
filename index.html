@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet">
@@ -12,13 +13,20 @@
     <title>Top Secret</title>
 </head>
 <body>
+    <div class="intro" id="intro">
+        <img src="./assets/CArojo.png" alt="Iniciales C A">
+        <div id="intro-comenzar" class="boton">COMENZAR</div>
+    </div>
     <div id="Player" class="DOMScene">
     </div>
     <div id="background" class="background">
-        <div id="op1" class="opcion">Opcion 1</div>
-        <div id="op2" class="opcion">NO ESCUCHAR</div>
+        <img id="matufia" src="./assets/matufia.jpeg" alt="mafia">
+        <div class="contenedor-opcion">
+            <div class="opcion">Opcion 1</div>
+            <div class="opcion">NO ESCUCHAR</div>
+        </div>
     </div>
 </body>
-<script src="http://www.youtube.com/player_api"></script>
 <script src="./script.js"></script>
+<script src="http://www.youtube.com/player_api"></script>
 </html>

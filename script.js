@@ -6,6 +6,7 @@ const Buttons = document.getElementsByClassName("opcion");
 const Intro = document.getElementById("intro");
 const Matufia = document.getElementById("matufia");
 const Sobre = document.getElementById("sobre");
+const CBU = document.getElementById("cbu");
 Intro.classList.toggle("fade");
 
 // Variables background videoID textContent
@@ -55,6 +56,11 @@ const ScenesData = [
     videoID: "08bioEKW5NE",
     textContent: "VOLVER A LA PREGUNTA",
   },
+  {
+    background: "url(./assets/background/9.jpg)",
+    videoID: "08bioEKW5NE",
+    textContent: "CONTINUAR AL CUESTIONARIO",
+  },
 ];
 const formLink =
   "https://docs.google.com/forms/d/1CabQ4_XSAeXbnUoCwPGOeaaDlLwsOxYmxJBV0JRm5pQ/edit?usp=drivesdk";
@@ -65,31 +71,41 @@ let tryAgain = false;
 
 // Events for buttons
 Buttons[0].addEventListener("click", () => {
-  if (STATE !== 8) {
-    STATE++;
+  if (STATE === 9) {
+    window.open(
+      "https://docs.google.com/forms/d/1CabQ4_XSAeXbnUoCwPGOeaaDlLwsOxYmxJBV0JRm5pQ/viewform?edit_requested=true",
+      "_blank"
+    );
   } else {
-    STATE = 1;
-    tryAgain = true;
-  }
-  changeScene();
-  if (tryAgain) {
-    setButtons();
-    setBackground();
-    tryAgain = false;
-  } else {
-    Player = new YT.Player("Player", {
-      width: "640",
-      height: "390",
-      videoId: ScenesData[STATE].videoID,
-      playerVars: {
-        controls: 0,
-        disablekb: 1,
-      },
-      events: {
-        onReady: onPlayerReady,
-        onStateChange: onPlayerStateChange,
-      },
-    });
+    if (STATE !== 8) {
+      STATE++;
+    } else {
+      STATE = 1;
+      tryAgain = true;
+    }
+    if (STATE === 7) {
+      CBU.style.left = "-50vw";
+    }
+    changeScene();
+    if (tryAgain) {
+      setButtons();
+      setBackground();
+      tryAgain = false;
+    } else {
+      Player = new YT.Player("Player", {
+        width: "640",
+        height: "390",
+        videoId: ScenesData[STATE].videoID,
+        playerVars: {
+          controls: 0,
+          disablekb: 1,
+        },
+        events: {
+          onReady: onPlayerReady,
+          onStateChange: onPlayerStateChange,
+        },
+      });
+    }
   }
 });
 Buttons[1].addEventListener("click", () => {
@@ -199,8 +215,14 @@ function onPlayerStateChange(event) {
       if (STATE === 5) {
         Sobre.style.top = "40vh";
       }
+      if (STATE === 6) {
+        CBU.style.left = "10vw";
+      }
     } else {
       console.log("Evento final");
+      STATE = 9;
+      event.target.destroy();
+      setScene();
     }
   }
 }

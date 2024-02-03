@@ -117,6 +117,7 @@ body {
     position: absolute;
     top: 50;
     left: -50vw; /* 10vw */
+    transition: left 500ms ease-in-out;
     color: #FAFAFA;
     text-align: center;
     font-weight: bold;

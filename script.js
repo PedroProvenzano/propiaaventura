@@ -5,6 +5,7 @@ const Scenes = {
 const Buttons = document.getElementsByClassName("opcion");
 const Intro = document.getElementById("intro");
 const Matufia = document.getElementById("matufia");
+const Sobre = document.getElementById("sobre");
 Intro.classList.toggle("fade");
 
 // Variables background videoID textContent
@@ -195,8 +196,16 @@ function onPlayerStateChange(event) {
     if (STATE !== 7) {
       event.target.destroy();
       setScene();
+      if (STATE === 5) {
+        Sobre.style.top = "40vh";
+      }
     } else {
       console.log("Evento final");
     }
   }
 }
+
+Sobre.addEventListener("click", () => {
+  open("https://pin.it/35Jjp4vzm", "_blank");
+  Sobre.style.top = "100vh";
+});

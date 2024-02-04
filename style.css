@@ -85,12 +85,11 @@ body {
     margin-top: 2rem;
 }
 .sobre {
-    position: absolute;
-    left: 25%;
-    top: 100vh; /* 40vh */
+    position: absolute; /* 40vh */
     transition: top 500ms ease-in-out;
-    width: 950px;
-    height: 600px;
+    width: 800px;
+    height: 500px;
+    display: none;
 }
 .sobre img {
     width: 100%;
@@ -116,20 +115,13 @@ body {
     text-align: center;
     font-weight: bold;
 }
-/*
 @media (max-width: 1200px) {
-    html {
-        font-size: 70%;
-    }
-    .opcion, .boton {
-        height: 220px;
-        width: 500px;
-    }
-    .sobre{
-        width: 500px;
-        height: 300px;
+    .background {
+        flex-direction: row;
+        padding: 0 10%;
     }
 }
+/*
 
 
 @media (max-width: 700px) {

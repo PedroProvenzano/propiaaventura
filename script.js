@@ -213,7 +213,7 @@ function onPlayerStateChange(event) {
       event.target.destroy();
       setScene();
       if (STATE === 5) {
-        Sobre.style.top = "40vh";
+        Sobre.style.display = "block";
       }
       if (STATE === 6) {
         CBU.style.left = "10%";
@@ -229,5 +229,5 @@ function onPlayerStateChange(event) {
 
 Sobre.addEventListener("click", () => {
   open("https://pin.it/35Jjp4vzm", "_blank");
-  Sobre.style.top = "100vh";
+  Sobre.style.display = "none";
 });

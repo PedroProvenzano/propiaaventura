@@ -214,6 +214,7 @@ function onPlayerStateChange(event) {
       setScene();
       if (STATE === 5) {
         Sobre.style.display = "block";
+        Scenes["DomChoose"].style.justifyContent = "space-between";
       }
       if (STATE === 6) {
         CBU.style.display = "block";
@@ -230,4 +231,5 @@ function onPlayerStateChange(event) {
 Sobre.addEventListener("click", () => {
   open("https://pin.it/35Jjp4vzm", "_blank");
   Sobre.style.display = "none";
+  Scenes["DomChoose"].style.justifyContent = "space-around";
 });

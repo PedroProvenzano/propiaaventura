@@ -30,14 +30,15 @@ body {
     display: none; /* flex */
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 2rem 0 0 0;
     background-image: url(./assets/background/1.png);
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
     transition: visibility 0s linear 0s, opacity 500ms;
 }
-.background img {
+.background #matufia {
     height: 350px;
     border: #FAFAFA 20px solid;
 }
@@ -85,8 +86,6 @@ body {
     margin-top: 2rem;
 }
 .sobre {
-    position: absolute; /* 40vh */
-    transition: top 500ms ease-in-out;
     width: 800px;
     height: 500px;
     display: none;
@@ -98,7 +97,7 @@ body {
 .sobre p {
     color: red;
     position: relative;
-    top: 62%;
+    top: 40%;
     left: 25%;
     font-size: 1.6rem;
     font-weight: bold;

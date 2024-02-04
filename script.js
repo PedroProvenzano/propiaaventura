@@ -60,7 +60,7 @@ const ScenesData = [
   {
     background: "url(./assets/background/9.jpg)",
     videoID: "08bioEKW5NE",
-    textContent: "CONTINUAR AL CUESTIONARIO",
+    textContent: "CONTINUAR AL FORMULARIO",
   },
 ];
 const formLink =

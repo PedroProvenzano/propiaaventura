@@ -52,13 +52,11 @@ body {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 0 2vw;
     border-radius: 15px;
-    width: 500px;
-    height: 220px;
-    min-height: 100px;
-    min-width: 210px;
-    font-size: 2rem;
+    width: 300px;
+    height: 130px;
+    font-size: 1.5rem;
+    padding: 0 2rem;
     background-image: url(./assets/boton\ fondo.svg);
     background-repeat: no-repeat;
     background-position: center;
@@ -80,14 +78,9 @@ body {
     opacity: 1;
 }
 .intro img {
-    height: 25vh;
-   height: 250px;
+   height: 150px;
 }
 .boton {
-    height: 15vh;
-    width: 18vw;
-    max-width: 320px;
-    max-height: 140px;
     margin-top: 2rem;
 }
 .sobre {
@@ -114,15 +107,15 @@ body {
     cursor: pointer;
 }
 .cbu {
-    font-size: 2rem;
+    font-size: 1.4rem;
     position: absolute;
-    top: 50;
-    left: -50vw; /* 10vw */
+    left: -90%; /* 10vw */
     transition: left 500ms ease-in-out;
     color: #FAFAFA;
     text-align: center;
     font-weight: bold;
 }
+/*
 @media (max-width: 1200px) {
     html {
         font-size: 70%;
@@ -137,7 +130,7 @@ body {
     }
 }
 
-/* Horizontal */
+
 @media (max-width: 700px) {
     html {
         font-size: 50%;
@@ -159,10 +152,11 @@ body {
 
 }
 
-/* Vertical */
+
 @media (max-width: 400px) {
     
     .sobre {
         top: 100vh;
     }
 }
+*/

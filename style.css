@@ -86,21 +86,13 @@ body {
     margin-top: 2rem;
 }
 .sobre {
-    width: 800px;
-    height: 500px;
+    width: 50%;
+    height: 50%;
     display: none;
 }
 .sobre img {
     width: 100%;
     height: 100%;
-}
-.sobre p {
-    color: red;
-    position: relative;
-    top: 40%;
-    left: 25%;
-    font-size: 1.6rem;
-    font-weight: bold;
 }
 .sobre:hover {
     cursor: pointer;
@@ -115,7 +107,18 @@ body {
 @media (max-width: 1200px) {
     .background {
         flex-direction: row;
+        justify-content: space-between;
         padding: 0 10%;
+    }
+    .sobre {
+        height: 100%;
+    }
+    .sobre img{
+        width: 100%;
+        height: 70vh;
+        max-height: 400px;
+        min-width: 500px;
+        align-self: flex-end;
     }
 }
 @media (max-width: 700px) {
@@ -124,10 +127,13 @@ body {
     }
     .sobre {
         width: 100vw;
-        height: 60vw;
+        height: 40vw;
+        min-height: 250px;
     }
-    .sobre p {
-        font-size: 1rem;
+    .sobre img {
+        min-width: 0;
+        width: 100%;
+        height: 100%;
     }
 }
 /*

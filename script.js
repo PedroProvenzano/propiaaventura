@@ -177,7 +177,6 @@ function startFadeout() {
     setTimeout(() => {
       document.getElementById("Player").style.display = "block";
       Intro.style.display = "none";
-      Player.playVideo();
     }, 1000 * 0.5);
     Intro.classList.toggle("fade");
   }, 1000 * 1);
@@ -214,7 +213,7 @@ function onPlayerStateChange(event) {
       event.target.destroy();
       setScene();
       if (STATE === 5) {
-        Sobre.style.display = "block";
+        Sobre.style.display = "flex";
         Scenes["DomChoose"].style.justifyContent = "space-between";
         ContenedorOpcion.style.paddingTop = "2rem";
       }

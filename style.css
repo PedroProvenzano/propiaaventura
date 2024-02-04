@@ -4,6 +4,9 @@
     margin: 0;
     font-family: 'Forum', serif;
 }
+html, body {
+    overflow: hidden;
+}
 body {
     background-color: black;
     display: flex;
@@ -12,7 +15,6 @@ body {
     align-items: center;
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
 }
 /* Video player */
 .DOMScene {
@@ -79,8 +81,7 @@ body {
 }
 .intro img {
     height: 25vh;
-    max-height: 250px;
-    min-height: 100px;
+   height: 250px;
 }
 .boton {
     height: 15vh;
@@ -136,12 +137,32 @@ body {
     }
 }
 
+/* Horizontal */
 @media (max-width: 700px) {
+    html {
+        font-size: 50%;
+    }
+    .intro img {
+        height: 50px;
+    }
     .contenedor-opcion{ 
         flex-direction: column;
     }
     .opcion, .boton {
-        width: 250px;
-        height: 120px;
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 140px;
+        min-height: 60px;
+        min-width: 120px;
+    }
+
+}
+
+/* Vertical */
+@media (max-width: 400px) {
+    
+    .sobre {
+        top: 100vh;
     }
 }

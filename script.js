@@ -7,6 +7,7 @@ const Intro = document.getElementById("intro");
 const Matufia = document.getElementById("matufia");
 const Sobre = document.getElementById("sobre");
 const CBU = document.getElementById("cbu");
+const ContenedorOpcion = document.getElementById("contenedor-opcion");
 Intro.classList.toggle("fade");
 
 // Variables background videoID textContent
@@ -215,6 +216,7 @@ function onPlayerStateChange(event) {
       if (STATE === 5) {
         Sobre.style.display = "block";
         Scenes["DomChoose"].style.justifyContent = "space-between";
+        ContenedorOpcion.style.paddingTop = "2rem";
       }
       if (STATE === 6) {
         CBU.style.display = "block";
@@ -232,4 +234,5 @@ Sobre.addEventListener("click", () => {
   open("https://pin.it/35Jjp4vzm", "_blank");
   Sobre.style.display = "none";
   Scenes["DomChoose"].style.justifyContent = "space-around";
+  ContenedorOpcion.style.paddingTop = "0";
 });

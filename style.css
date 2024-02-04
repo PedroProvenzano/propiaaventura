@@ -122,6 +122,13 @@ body {
     .background, .contenedor-opcion {
         flex-direction: column;
     }
+    .sobre {
+        width: 100vw;
+        height: 60vw;
+    }
+    .sobre p {
+        font-size: 1rem;
+    }
 }
 /*
 

@@ -84,7 +84,7 @@ Buttons[0].addEventListener("click", () => {
       tryAgain = true;
     }
     if (STATE === 7) {
-      CBU.style.left = "-90%";
+      CBU.style.display = "none";
     }
     changeScene();
     if (tryAgain) {
@@ -216,7 +216,7 @@ function onPlayerStateChange(event) {
         Sobre.style.display = "block";
       }
       if (STATE === 6) {
-        CBU.style.left = "10%";
+        CBU.style.display = "block";
       }
     } else {
       console.log("Evento final");

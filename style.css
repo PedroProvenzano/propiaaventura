@@ -108,12 +108,10 @@ body {
 }
 .cbu {
     font-size: 1.4rem;
-    position: absolute;
-    left: -90%; /* 10vw */
-    transition: left 500ms ease-in-out;
     color: #FAFAFA;
     text-align: center;
     font-weight: bold;
+    display: none;
 }
 @media (max-width: 1200px) {
     .background {
